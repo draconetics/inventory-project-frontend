@@ -1,0 +1,1 @@
+export const urlPreviewImage = 'https://drive.google.com/uc?export=view&id=';
