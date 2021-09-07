@@ -120,7 +120,7 @@ interface IComProps{
 
 const boxStyle = {
     
-    width:'200px',
+    width:'400px',
     height:'100px',
     display:'flex',
     FlexDirection:'row',
@@ -129,12 +129,14 @@ const boxStyle = {
     alignItems: 'center',
     padding:'0px',
     margin:'0px',
-    boxSize:'border-box'
+    boxSize:'border-box',
+    borderBottom:'1px solid gray'
 }
 
 const data = {
     padding:'0px',
     margin:'0px',
+    marginRight:'10px',
     boxSize:'border-box',
     fontSize:'12px'
 }
@@ -159,10 +161,17 @@ class ComponentToPrint extends React.Component <IComProps,any>{
       return (
         <div style={boxStyle}>
             <div style={data}>
-                <p style={paragraph}>Aeropostale</p>
+                <p style={paragraph}>{product.brand?.name.toUpperCase()}</p>
                 <p style={paragraph}>Size: L</p>
-                <p style={paragraph}>T-shirt</p>
+                <p style={paragraph}>{product.gender.toUpperCase()}</p>
                 <p style={cost}>ID<b>{product.code}</b></p>
+            </div>
+            <div style={data}>
+                <p style={paragraph}>{product.container?.space}</p>
+                <p style={paragraph}>{product.state?.description}</p>
+                <p style={paragraph}>American Child</p>
+                
+                
             </div>
             {qrImage ? (
             <a href={qrImage} download>

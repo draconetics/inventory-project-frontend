@@ -80,8 +80,8 @@ export default class componentName extends React.Component<IPropsProductListComp
         const productList = this.props.products;
         return (
           <div className="brand-list">
-              <h2>this is brandlist component</h2>
-              <h3>{JSON.stringify(this.props.products)}</h3>
+              <h2>this is product list component</h2>
+
               <div className="container">
                 
               </div>

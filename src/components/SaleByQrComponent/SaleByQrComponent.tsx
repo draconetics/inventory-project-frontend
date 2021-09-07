@@ -3,6 +3,7 @@ import {Button, Image, Col, Row, Table, Modal, Form} from 'react-bootstrap';
 import { RouteComponentProps } from "react-router-dom";
 import QrReader from 'modern-react-qr-reader';
 import { urlPreviewImage } from '../../config/google-drive';
+import { Link } from 'react-router-dom';
 
 interface IPropsSaleQromponent extends RouteComponentProps<any>{
   cart: IProduct[];
@@ -127,11 +128,16 @@ export default class ProductCreateComponent extends React.Component<IPropsSaleQr
             {cart && cart.map((item, index)=>{
                 return (
                 <tr key={index}>
-                    <td>{index+1}</td>
+                    <td>{item.code}</td>
                     <td><Image thumbnail src={urlPreviewImage+item.imageId} alt={'not found'}/></td>
                     <td>Bs. {item.cost}</td>
                     <td>
-                        <Button variant="danger" onClick={() => this.deleteItem(item)} >Delete</Button>
+                    <Link to={'/products/edit/'+item._id}>
+                              <button className="btn btn-success" >Edit</button>
+                            </Link>
+                            <Link to={'/products/code/'+item.code}>
+                              <Button variant="outline-secondary">View</Button>
+                            </Link>
                     </td>
                 </tr>
                 )
@@ -151,11 +157,11 @@ export default class ProductCreateComponent extends React.Component<IPropsSaleQr
         <div className="product-create-component container">
             <h2>SALE BY QR</h2>
             <Row>
-                <h3>Qr Code Scan by Web Cam</h3>
+                <h3>Qr Code Scan by Web Cam (delay 300)</h3>
                 <h4>CART COUNT: {cart.length}</h4>
                 <Col sm={12} md={6}>
                     <QrReader
-                    delay={500}
+                    delay={300}
                     style={{width: '100%'}}
                     onError={this.handleErrorWebCam}
                     onScan={this.handleScanWebCam}
@@ -194,7 +200,7 @@ export default class ProductCreateComponent extends React.Component<IPropsSaleQr
       return (
         <Modal show={show} onHide={this.closeDialogItemFound}>
             <Modal.Header closeButton>
-            <Modal.Title>Item found!!</Modal.Title>
+            <Modal.Title>Finding Item</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <div><Image thumbnail src={urlPreviewImage+product.imageId} alt={'not found'}/></div>

@@ -10,9 +10,14 @@ export default function MenuComponent() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="justify-content-end" style={{ width: "100%" }}>
                     <Nav.Link href="/home">Home</Nav.Link>
+                    
+                    <Nav.Link href="/sales/qr">Search</Nav.Link>
                     <Nav.Link href="/products">Products</Nav.Link>
                     <Nav.Link href="/sales">Sales</Nav.Link>
                     <Nav.Link href="/clients">Clients</Nav.Link>
+                    <Nav.Link href="/containers">Containers</Nav.Link>
+                    <Nav.Link href="/states">Product's state</Nav.Link>
+                    <Nav.Link href="/brands">Brands</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

@@ -31,7 +31,9 @@ interface IProduct{
     gender: string,
     cost: number,
     brand?: IBrand,
-    imageId?:string
+    imageId?:string,
+    container?:IContainer,
+    state?:IState,
 }
 
 interface IProductStateReducer {
@@ -79,4 +81,33 @@ interface IClientStateReducer {
 
 interface ICartStateReducer {
     cart:IProduct[];
+}
+
+//CONTAINER
+interface IContainer{
+    _id?: string,
+    type: string,
+    space: string
+}
+
+interface IContainerStateReducer {
+    containers:IContainer[];
+    containerLoading: boolean;
+    containerError: string;
+    containerSelected: IContainer;
+    containerProductList: IProduct[];
+}
+
+//STATE
+
+interface IState{
+    _id?: string,
+    name: string,
+    description: string
+}
+
+interface IStateStateReducer {
+    states:IState[];
+    statesLoading: boolean;
+    statesError: string;
 }

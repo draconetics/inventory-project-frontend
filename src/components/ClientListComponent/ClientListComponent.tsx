@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table} from 'react-bootstrap';
 
-interface IPropsProductListComponent {
+interface IPropsContainerListComponent {
     clients: IClient[];
     getClients: () => Promise<void>;
     /* createBrand:(data:IBrand)=> void;
@@ -9,11 +9,11 @@ interface IPropsProductListComponent {
     deleteBrand:(data:IBrand)=>void; */
 }
   
-interface IStateProductListComponent{
+interface IStateContainerListComponent{
 }
 
 
-export default class componentName extends React.Component<IPropsProductListComponent,IStateProductListComponent> {
+export default class componentName extends React.Component<IPropsContainerListComponent,IStateContainerListComponent> {
 
 
       componentDidMount(){
